@@ -27,6 +27,21 @@ h1 {
   max-width: 700px;
 }
 
+.themeToggle {
+  position: absolute;
+  margin: auto;
+  top: 20px;
+  right: 20px;
+  background: none;
+  border: none;
+  cursor: pointer;
+}
+
+.themeToggle img {
+  width: 40px;
+  height: 40px;
+}
+
 #display {
   font-size: 48px;
   margin: 20px 0;
@@ -57,7 +72,30 @@ h1 {
 .duration-control button {
   margin: 5px;
   padding: 10px 15px;
-  font-size: 14px;
+  font-size: 12px;
   cursor: pointer;
   border-radius: 5px;
 }
+
+/* lets mess around with light/ dark modes */
+
+.dark-mode h1 {
+  background-color: #1e1e1e;
+  color: grey;
+}
+
+.dark-mode {
+  background-color: #121212;
+  color: grey;
+}
+.dark-mode .pomodoro {
+  background-color: #1e1e1e;
+}
+
+.dark-mode .control button {
+  background-color: #333333;
+  color: #ffffff;
+}
+
+/* remove dark mode class from body in html
+change timer back to 25 and 5 mins in js */

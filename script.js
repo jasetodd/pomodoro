@@ -4,10 +4,8 @@ const resetButton = document.querySelector("#reset");
 const display = document.querySelector("#display");
 const workOrBreakButton = document.querySelector("#workOrBreak");
 const modeDisplay = document.querySelector("#mode-label");
-const workPlusButton = document.querySelector("#workPlus");
-const workMinusButton = document.querySelector("#workMinus");
-const breakPlusButton = document.querySelector("#breakPlus");
-const breakMinusButton = document.querySelector("#breakMinus");
+const plusButton = document.querySelector("#workPlus");
+const minusButton = document.querySelector("#workMinus");
 
 const openingBell = new Audio("sounds/opening-bell.mp3");
 const closingBell = new Audio("sounds/clear-bell.mp3");
@@ -72,30 +70,6 @@ function startTimer() {
   }
 }
 
-startButton.addEventListener("click", () => {
-  if (currentMode === "") {
-    currentMode = "work";
-    remainingTime = workDuration;
-    updateDisplay();
-  }
-  startTimer();
-});
-
-pauseButton.addEventListener("click", () => {
-  if (timerRunning) {
-    timerRunning = false;
-    clearInterval(intervalId);
-  }
-});
-
-resetButton.addEventListener("click", () => {
-  resetTimer();
-});
-
-workOrBreakButton.addEventListener("click", () => {
-  toggleMode();
-});
-
 function toggleMode() {
   if (currentMode === "work") {
     currentMode = "break";
@@ -107,3 +81,80 @@ function toggleMode() {
     updateDisplay();
   }
 }
+
+function addTime() {
+  remainingTime += 60;
+  updateDisplay();
+}
+function minusTime() {
+  if (remainingTime > 60) {
+    remainingTime -= 60;
+    updateDisplay();
+  } else {
+    remainingTime = 0;
+    updateDisplay();
+  }
+}
+
+function pauseTimer() {
+  if (timerRunning) {
+    timerRunning = false;
+    clearInterval(intervalId);
+  }
+}
+
+startButton.addEventListener("click", () => {
+  if (currentMode === "") {
+    currentMode = "work";
+    remainingTime = workDuration;
+    updateDisplay();
+  }
+  startTimer();
+});
+
+pauseButton.addEventListener("click", () => {
+  pauseTimer();
+});
+
+resetButton.addEventListener("click", () => {
+  resetTimer();
+});
+
+workOrBreakButton.addEventListener("click", () => {
+  toggleMode();
+});
+
+plusButton.addEventListener("click", () => {
+  addTime();
+});
+
+minusButton.addEventListener("click", () => {
+  minusTime();
+});
+
+document.addEventListener("keydown", (event) => {
+  if (event.target.tagName === "INPUT") return;
+  if (event.code === "Space") {
+    if (timerRunning) {
+      pauseTimer();
+    } else {
+      startTimer();
+    }
+  } else if (event.code === "KeyR") {
+    resetTimer();
+  } else if (event.code === "KeyM") {
+    toggleMode();
+  } else if (event.code === "ArrowUp") {
+    addTime();
+  } else if (event.code === "ArrowDown") {
+    minusTime();
+  }
+});
+
+//light/ dark mode toggle
+
+const themeToggleButton = document.querySelector(".themeToggle");
+
+themeToggleButton.addEventListener("click", () => {
+  document.body.classList.toggle("dark-mode");
+});

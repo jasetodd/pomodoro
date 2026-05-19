@@ -6,10 +6,13 @@
     <link rel="stylesheet" href="styles.css" />
     <title>Document</title>
   </head>
-  <body>
+  <body class="dark-mode">
     <h1 class="header">Pomodoro Timer</h1>
     <section class="pomodoro">
       <h2 id="mode-label">Work</h2>
+      <button class="themeToggle">
+        <img src="icons\Day_night.png" alt="Toggle theme" />
+      </button>
       <div id="display">25:00</div>
       <div class="control">
         <button id="start">Start</button>
@@ -17,10 +20,8 @@
         <button id="reset">Reset</button>
         <button id="workOrBreak">Work/ Break</button>
         <div class="duration-control">
-          <button id="workPlus">Work +</button>
-          <button id="workMinus">Work -</button>
-          <button id="breakPlus">Break +</button>
-          <button id="breakMinus">Break -</button>
+          <button id="workPlus">Work/ Break +</button>
+          <button id="workMinus">Work/ Break -</button>
         </div>
       </div>
     </section>
