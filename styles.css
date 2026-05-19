@@ -24,17 +24,40 @@ h1 {
   width: auto;
   justify-self: center;
   box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+  max-width: 700px;
 }
 
 #display {
   font-size: 48px;
   margin: 20px 0;
 }
+.control {
+  display: flex;
+  justify-content: center;
+  margin-top: 20px;
+  flex-wrap: wrap;
+  flex-basis: 0 1 21%;
+}
 
 .control button {
   padding: 10px 20px;
   margin: 0 10px;
   font-size: 16px;
+  cursor: pointer;
+  border-radius: 5px;
+}
+
+.duration-control {
+  display: flex;
+  justify-content: center;
+  margin-top: 20px;
+  flex-wrap: wrap;
+}
+
+.duration-control button {
+  margin: 5px;
+  padding: 10px 15px;
+  font-size: 14px;
   cursor: pointer;
   border-radius: 5px;
 }

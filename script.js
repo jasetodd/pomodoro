@@ -4,6 +4,10 @@ const resetButton = document.querySelector("#reset");
 const display = document.querySelector("#display");
 const workOrBreakButton = document.querySelector("#workOrBreak");
 const modeDisplay = document.querySelector("#mode-label");
+const workPlusButton = document.querySelector("#workPlus");
+const workMinusButton = document.querySelector("#workMinus");
+const breakPlusButton = document.querySelector("#breakPlus");
+const breakMinusButton = document.querySelector("#breakMinus");
 
 const openingBell = new Audio("sounds/opening-bell.mp3");
 const closingBell = new Audio("sounds/clear-bell.mp3");
