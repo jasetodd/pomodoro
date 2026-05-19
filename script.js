@@ -8,8 +8,10 @@ const modeDisplay = document.querySelector("#mode-label");
 const openingBell = new Audio("sounds/opening-bell.mp3");
 const closingBell = new Audio("sounds/clear-bell.mp3");
 
-let workDuration = 25 * 60;
-let breakDuration = 5 * 60;
+// let workDuration = 25 * 60;
+let workDuration = 2;
+// let breakDuration = 5 * 60;
+let breakDuration = 5;
 let currentMode = "work";
 let timerRunning = false;
 let intervalId = null;
@@ -39,6 +41,11 @@ function startTimer() {
       if (remainingTime > 0) {
         remainingTime--;
         updateDisplay();
+        if (currentMode === "work" && remainingTime === 0) {
+          closingBell.play();
+        } else if (currentMode === "break" && remainingTime === 0) {
+          openingBell.play();
+        }
       } else {
         clearInterval(intervalId);
         timerRunning = false;
@@ -96,5 +103,3 @@ function toggleMode() {
     updateDisplay();
   }
 }
-
-// fix sounds play after 00:00, i want them to play at 00:00
