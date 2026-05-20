@@ -1,3 +1,8 @@
+const savedTheme = localStorage.getItem("pomodoro-theme");
+if (savedTheme === "dark") {
+  document.body.classList.add("dark-mode");
+}
+
 const startButton = document.querySelector("#start");
 const pauseButton = document.querySelector("#pause");
 const resetButton = document.querySelector("#reset");
@@ -157,4 +162,12 @@ const themeToggleButton = document.querySelector(".themeToggle");
 
 themeToggleButton.addEventListener("click", () => {
   document.body.classList.toggle("dark-mode");
+
+  if (document.body.classList.contains("dark-mode")) {
+    localStorage.setItem("pomodoro-theme", "dark");
+  } else {
+    localStorage.setItem("pomodoro-theme", "light");
+  }
 });
+
+// local storage practice
