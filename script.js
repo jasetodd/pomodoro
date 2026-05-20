@@ -15,10 +15,8 @@ const minusButton = document.querySelector("#workMinus");
 const openingBell = new Audio("sounds/opening-bell.mp3");
 const closingBell = new Audio("sounds/clear-bell.mp3");
 
-// let workDuration = 25 * 60;
-let workDuration = 2;
-// let breakDuration = 5 * 60;
-let breakDuration = 5;
+let workDuration = 25 * 60;
+let breakDuration = 5 * 60;
 let currentMode = "work";
 let timerRunning = false;
 let intervalId = null;
@@ -156,7 +154,6 @@ document.addEventListener("keydown", (event) => {
   }
 });
 
-//light/ dark mode toggle
 
 const themeToggleButton = document.querySelector(".themeToggle");
 
@@ -170,4 +167,3 @@ themeToggleButton.addEventListener("click", () => {
   }
 });
 
-// local storage practice

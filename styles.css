@@ -77,8 +77,6 @@ h1 {
   border-radius: 5px;
 }
 
-/* lets mess around with light/ dark modes */
-
 .dark-mode h1 {
   background-color: #1e1e1e;
   color: grey;
@@ -96,6 +94,3 @@ h1 {
   background-color: #333333;
   color: #ffffff;
 }
-
-/* remove dark mode class from body in html
-change timer back to 25 and 5 mins in js */
