@@ -15,6 +15,8 @@ const minusButton = document.querySelector("#workMinus");
 const openingBell = new Audio("sounds/opening-bell.mp3");
 const closingBell = new Audio("sounds/clear-bell.mp3");
 
+const title = document.querySelector("title");
+
 let workDuration = 25 * 60;
 let breakDuration = 5 * 60;
 let currentMode = "work";
@@ -31,6 +33,7 @@ function updateDisplay() {
     .toString()
     .padStart(2, "0")}`;
   modeDisplay.textContent = currentMode === "work" ? "Work" : "Break";
+  title.textContent = `${display.textContent} - ${currentMode === "work" ? "Work" : "Break"} Timer`;
 }
 
 function resetTimer() {
@@ -154,7 +157,6 @@ document.addEventListener("keydown", (event) => {
   }
 });
 
-
 const themeToggleButton = document.querySelector(".themeToggle");
 
 themeToggleButton.addEventListener("click", () => {
@@ -166,4 +168,3 @@ themeToggleButton.addEventListener("click", () => {
     localStorage.setItem("pomodoro-theme", "light");
   }
 });
-
